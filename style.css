@@ -1,113 +1,91 @@
 body{
 
-background:#cfe8ff;
-font-family:Arial;
+background:#d8ecff;
 margin:0;
+font-family:Arial;
+
+}
+
+.topbar{
+
+background:white;
+padding:10px;
 display:flex;
-flex-direction:column;
+justify-content:space-between;
 align-items:center;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
 
 }
 
-header{
+.logo{
 
-background:white;
-width:100%;
-text-align:center;
-padding:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+font-size:20px;
+font-weight:bold;
 
 }
 
-.upload{
+.uploadBar input{
 
-background:white;
-padding:10px;
-border-radius:10px;
-width:260px;
-margin:15px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-
-}
-
-input, textarea, select{
-
-width:100%;
-margin:4px 0;
-padding:6px;
-border-radius:6px;
-border:1px solid #ddd;
-font-size:12px;
-
-}
-
-button{
-
-width:100%;
-padding:6px;
-border:none;
-border-radius:6px;
-background:#6fa8dc;
-color:white;
-cursor:pointer;
+margin-right:5px;
 
 }
 
 #feed{
 
 display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:center;
-width:95%;
+flex-direction:column;
+align-items:center;
+margin-top:20px;
 
 }
 
 .post{
 
 background:white;
-width:200px;
+width:350px;
 border-radius:10px;
-padding:8px;
+margin-bottom:20px;
 box-shadow:0 3px 10px rgba(0,0,0,0.1);
+
+}
+
+.postHeader{
+
+padding:10px;
+font-weight:bold;
 
 }
 
 .post img{
 
 width:100%;
-border-radius:6px;
 
 }
 
-.likes{
+.postActions{
+
+padding:8px;
+
+}
+
+.like{
 
 cursor:pointer;
 color:#ff4d6d;
-font-size:12px;
-
-}
-
-.comment{
-
-font-size:11px;
 
 }
 
 .commentInput{
 
-width:100%;
-font-size:11px;
+width:90%;
+margin:5px;
+padding:5px;
 
 }
 
-.tag{
+.comment{
 
-font-size:10px;
-background:#6fa8dc;
-color:white;
-padding:2px 5px;
-border-radius:5px;
-display:inline-block;
+font-size:13px;
+padding-left:10px;
 
 }
