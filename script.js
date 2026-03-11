@@ -1,4 +1,4 @@
-let posts = JSON.parse(localStorage.getItem("posts")) || []
+let posts = JSON.parse(localStorage.getItem("koreagramPosts")) || []
 
 let feed = document.getElementById("feed")
 
@@ -8,6 +8,8 @@ function createPost(){
 
 let username = document.getElementById("username").value
 let file = document.getElementById("imageFile").files[0]
+
+if(!file) return
 
 let reader = new FileReader()
 
@@ -30,11 +32,7 @@ render()
 
 }
 
-if(file){
-
 reader.readAsDataURL(file)
-
-}
 
 }
 
@@ -90,7 +88,11 @@ function comment(e,i,input){
 
 if(e.key==="Enter"){
 
-posts[i].comments.push(input.value)
+let text=input.value.trim()
+
+if(text==="") return
+
+posts[i].comments.push(text)
 
 input.value=""
 
@@ -104,6 +106,6 @@ render()
 
 function save(){
 
-localStorage.setItem("posts",JSON.stringify(posts))
+localStorage.setItem("koreagramPosts",JSON.stringify(posts))
 
 }
