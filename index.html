@@ -2,31 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>2b2t Koreagram</title>
+<title>Koreagram</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>📸 2b2t Koreagram</h1>
-<p>2b2t Korea 플레이어 피드</p>
+<h1>📸 Koreagram</h1>
 </header>
 
-<section class="upload">
-
-<h2>게시물 올리기</h2>
+<div class="upload">
 
 <input id="username" placeholder="닉네임">
 <input id="title" placeholder="제목">
-<input id="image" placeholder="이미지 URL">
+<input type="file" id="imageFile">
 <textarea id="desc" placeholder="설명"></textarea>
+
+<select id="tag">
+<option>Base</option>
+<option>War</option>
+<option>Discovery</option>
+<option>Meme</option>
+</select>
 
 <button onclick="createPost()">Post</button>
 
-</section>
+</div>
 
-<section id="feed"></section>
+<div id="feed"></div>
 
 <script src="script.js"></script>
 
