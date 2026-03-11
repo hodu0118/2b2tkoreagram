@@ -1,27 +1,21 @@
-let feed = document.getElementById("feed")
-
 let posts = JSON.parse(localStorage.getItem("posts")) || []
 
-renderPosts()
+let feed = document.getElementById("feed")
+
+render()
 
 function createPost(){
 
 let username = document.getElementById("username").value
-let title = document.getElementById("title").value
-let desc = document.getElementById("desc").value
-let tag = document.getElementById("tag").value
 let file = document.getElementById("imageFile").files[0]
 
 let reader = new FileReader()
 
-reader.onload = function(e){
+reader.onload=function(e){
 
-let post = {
+let post={
 
-username,
-title,
-desc,
-tag,
+user:username,
 image:e.target.result,
 likes:0,
 comments:[]
@@ -32,43 +26,47 @@ posts.unshift(post)
 
 save()
 
-renderPosts()
+render()
 
 }
 
 if(file){
+
 reader.readAsDataURL(file)
-}
 
 }
 
-function renderPosts(){
+}
+
+function render(){
 
 feed.innerHTML=""
 
-posts.forEach((post,index)=>{
+posts.forEach((p,i)=>{
 
-let div = document.createElement("div")
+let div=document.createElement("div")
+
 div.className="post"
 
 div.innerHTML=`
 
-<img src="${post.image}">
-<p><b>${post.title}</b></p>
+<div class="postHeader">👤 ${p.user}</div>
 
-<span class="tag">${post.tag}</span>
+<img src="${p.image}">
 
-<p>${post.desc}</p>
+<div class="postActions">
 
-<p>👤 ${post.username}</p>
+<span class="like" onclick="like(${i})">❤️ ${p.likes}</span>
 
-<p class="likes" onclick="likePost(${index})">❤️ ${post.likes}</p>
-
-<div id="comments-${index}">
-${post.comments.map(c=>`<div class="comment">💬 ${c}</div>`).join("")}
 </div>
 
-<input class="commentInput" placeholder="댓글..." onkeypress="commentEnter(event,${index},this)">
+<div>
+
+${p.comments.map(c=>`<div class="comment">💬 ${c}</div>`).join("")}
+
+</div>
+
+<input class="commentInput" placeholder="댓글..." onkeypress="comment(event,${i},this)">
 
 `
 
@@ -78,31 +76,27 @@ feed.appendChild(div)
 
 }
 
-function likePost(index){
+function like(i){
 
-posts[index].likes++
+posts[i].likes++
 
 save()
 
-renderPosts()
+render()
 
 }
 
-function commentEnter(event,index,input){
+function comment(e,i,input){
 
-if(event.key==="Enter"){
+if(e.key==="Enter"){
 
-let text=input.value.trim()
-
-if(!text) return
-
-posts[index].comments.push(text)
+posts[i].comments.push(input.value)
 
 input.value=""
 
 save()
 
-renderPosts()
+render()
 
 }
 
