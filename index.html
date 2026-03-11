@@ -8,29 +8,23 @@
 
 <body>
 
-<header>
-<h1>📸 Koreagram</h1>
-</header>
+<header class="topbar">
 
-<div class="upload">
+<div class="logo">📸 Koreagram</div>
+
+<div class="uploadBar">
 
 <input id="username" placeholder="닉네임">
-<input id="title" placeholder="제목">
-<input type="file" id="imageFile">
-<textarea id="desc" placeholder="설명"></textarea>
 
-<select id="tag">
-<option>Base</option>
-<option>War</option>
-<option>Discovery</option>
-<option>Meme</option>
-</select>
+<input type="file" id="imageFile">
 
 <button onclick="createPost()">Post</button>
 
 </div>
 
-<div id="feed"></div>
+</header>
+
+<main id="feed"></main>
 
 <script src="script.js"></script>
 
